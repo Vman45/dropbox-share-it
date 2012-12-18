@@ -12,6 +12,7 @@ It used the following variables that must be set: DROPBOX_FOLDER and DROPBOX_UID
 For example:
 
 DROPBOX_FOLDER=~/Dropbox/Public
+
 DROPBOX_UID=1234
 
 This script requires googlit.sh.
