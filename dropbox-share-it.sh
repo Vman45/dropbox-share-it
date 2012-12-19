@@ -6,7 +6,7 @@ ICON_OK=~/.dropbox-dist/images/emblems/emblem-dropbox-uptodate.png
 
 # Dropbox settings
 DROPBOX_FOLDER=~/Dropbox/Public
-DROPBOX_UID=? ? ? ?
+DROPBOX_UID=
 
 # Select your url shortener
 URL_SHORTENER=/path/to/directory/googlit.sh
