@@ -3,7 +3,7 @@ dropbox-share-it
 
 dropbox-share-it processes files or directories.
 
-When handling files, it copies it to the Dropbox Public folder and generates a shortened public link in clipboard ready for a ctrl-v. When handling a directory, it firstly zips it then treats it as a file.
+When handling files, it copies it to the Dropbox Public folder and generates a shortened public link in clipboard ready for a ctrl-v. When handling a directory, first it zips it then publishes the resulting archive.
 
 File browser script
 ===================
