@@ -16,8 +16,8 @@ HANDLE_DIRECTORIES=YES
 # If there is no argument look at the clipboard
 if [ -d "$1" ] && [ $HANDLE_DIRECTORIES != YES ]; then
 
-  notify-send "Dropbox-Share-It! by R J Cintra" \
-              "Warning: Directories cannot be shared." \
+  notify-send "Dropbox-Share-It!" \
+              "Warning: Directories support disabled." \
               -i $ICON_WARNING
   exit 113
 
