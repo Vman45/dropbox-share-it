@@ -16,17 +16,20 @@ It was tested under Caja, Nautilus, and Thunar.
     
         ~/.gnome2/nautilus-scripts
 
-In Thunar, just go to Edit menu, and then configure Custom Actions.
+   In Thunar, just go to Edit menu, and then configure Custom Actions.
 
 2. Edit the script file and supply your Dropbox user id at the following variable:
+
         DROPBOX_UID
 3. Edit the script file and supply your Dropbox base directory (if not default) at the following variable:
+
         DROPBOX_FOLDER
 4. Edit the script file and supply the path for your url shortener at the following variable:
+
         URL_SHORTENER
 5. Make the script file executable:
 
-    $ chmod u+x dropbox-share-it
+        $ chmod u+x dropbox-share-it
 
 ## How to Use
 
@@ -40,6 +43,8 @@ If the targe object is a folder, then the script will zip it into an archive. Re
 ## URL Shortener
 
 We suggest using googlit.sh: https://github.com/rjdsc/googlit
+
+Actually this script was only tested with googlit.sh.
 
 ## Dropbox UID
 
