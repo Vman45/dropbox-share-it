@@ -10,7 +10,7 @@ It was tested under Caja, Nautilus, and Thunar.
 
 ## Installation
 
-1. If using Caja or Nautilus, copy the script file to either of the following directories:
+1. If using Caja or Nautilus, copy the script file to one of the following directories:
 
         ~/.config/caja/scripts
     
