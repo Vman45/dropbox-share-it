@@ -3,9 +3,9 @@ dropbox-share-it
 
 dropbox-share-it processes files or directories.
 
-When handling files, it copies it to the Dropbox Public folder and generates a shortened public link. When handling a directory, it firstly zips it then copies the zip file to the Dropbox Public folder.
+When handling files, it copies it to the Dropbox Public folder and generates a shortened public link in clipboard ready for a ctrl-v. When handling a directory, it firstly zips it then treats it as a file.
 
-This script was intended to be used as a file browser script. It was tested under Caja, Nautilus, and Thunar.
+This script is intended to work as a file browser script. It was tested under Caja, Nautilus, and Thunar.
 
 In Caja, just copy it to:
 
