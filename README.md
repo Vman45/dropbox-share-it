@@ -15,12 +15,8 @@ In Nautilus, copy it to:
 
 ~/.gnome2/nautilus-scripts
 
-It used the following variables that must be set: DROPBOX_FOLDER and DROPBOX_UID.
+The following variables that must be set in the script: DROPBOX_FOLDER, DROPBOX_UID and URL_SHORTENER.
 
-For example:
+This script requires googlit.sh:
 
-DROPBOX_FOLDER=~/Dropbox/Public
-
-DROPBOX_UID=1234
-
-This script requires googlit.sh.
+https://github.com/rjdsc/googlit
