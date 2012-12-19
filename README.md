@@ -38,7 +38,7 @@ It was tested in a Linux Mint box for the following file managers: Caja, Nautilu
 3. Notifications may appear.
 4. A short URL should be available at your clipboard ready for ctrl+v.
 
-If the targe object is a folder, then the script will zip it into an archive. Remaining actions are similar.
+If the target object is a folder, then the script will zip it into an archive. Remaining actions (2-4) follow the same.
 
 ## URL Shortener
 
