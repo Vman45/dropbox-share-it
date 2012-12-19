@@ -18,7 +18,7 @@ It was tested in a Linux Mint box for the following file manages: Caja, Nautilus
 
    In Thunar, just go to Edit menu, and then configure Custom Actions.
 
-2. Edit the script file and supply your Dropbox user id at the following variable:
+2. Edit the script file and supply your Dropbox user id (see below how to find out your Dropbox user id) at the following variable:
 
         DROPBOX_UID
 3. Edit the script file and supply your Dropbox base directory (if not default) at the following variable:
