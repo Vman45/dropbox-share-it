@@ -6,7 +6,7 @@ When handling a file, the script copies it to the Dropbox Public folder and gene
 
 This script is intended to work as a file manager script. But it should work fine as a command line tool too.
 
-It was tested in a Linux Mint box for the following file manages: Caja, Nautilus, and Thunar.
+It was tested in a Linux Mint box for the following file managers: Caja, Nautilus, and Thunar.
 
 ## Installation
 
@@ -24,7 +24,7 @@ It was tested in a Linux Mint box for the following file manages: Caja, Nautilus
 3. Edit the script file and supply your Dropbox base directory (if not default) at the following variable:
 
         DROPBOX_FOLDER
-4. Edit the script file and supply the path for your url shortener at the following variable:
+4. Edit the script file and supply the path for your preferred url shortener at the following variable:
 
         URL_SHORTENER
 5. Make the script file executable:
