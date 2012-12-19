@@ -15,6 +15,10 @@ In Nautilus, copy it to:
 
 ~/.gnome2/nautilus-scripts
 
+Don't forget to make it executable:
+
+$ chmod u+x dropbox-share-it
+
 The following variables that must be set in the script: DROPBOX_FOLDER, DROPBOX_UID and URL_SHORTENER.
 
 This script requires googlit.sh:
