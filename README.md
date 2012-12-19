@@ -14,6 +14,8 @@ This script is intended to work as a file browser script. It was tested under Ca
     
         ~/.gnome2/nautilus-scripts
 
+In Thunar, just go to Edit menu, and then configure Custom Actions.
+
 2. Edit the script file and supply your Dropbox user id at the following variable:
         DROPBOX_UID
 3. Edit the script file and supply your Dropbox base directory (if not default) at the following variable:
