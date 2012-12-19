@@ -9,7 +9,7 @@ DROPBOX_FOLDER=~/Dropbox/Public
 DROPBOX_UID=? ? ? ?
 
 # Select your url shortener
-URL_SHORTENER=~/Dropbox/System/Scripts/googlit.sh
+URL_SHORTENER=/path/to/directory/googlit.sh
 
 HANDLE_DIRECTORIES=YES
 
@@ -35,7 +35,7 @@ fi
 # Display a warning if file is already published
 if [ -e "$DROPBOX_FOLDER/$FILENAME" ]; then
 
-  notify-send "Dropbox-Share-It! by R J Cintra" \
+  notify-send "Dropbox-Share-It!" \
               "Warning: $FILENAME was overwritten." \
               -i $ICON_WARNING
 fi
@@ -45,7 +45,7 @@ if [ -d "$1" ]; then
 
   zip -r "$DROPBOX_FOLDER/$FILENAME" "$BASENAME" 
 
-  notify-send "Dropbox-Share-It! by R J Cintra" \
+  notify-send "Dropbox-Share-It!" \
               "Zipping directory." \
               -i $ICON_WARNING
 else
@@ -64,6 +64,6 @@ SHORTENED=`$URL_SHORTENER $URL`
 
 echo -n $SHORTENED | xclip -selection clipboard
 
-notify-send "Dropbox-Share-It! by R J Cintra" \
+notify-send "Dropbox-Share-It!" \
             "Short URL: $SHORTENED" \
             -i $ICON_OK
