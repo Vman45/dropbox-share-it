@@ -4,9 +4,9 @@ dropbox-share-it processes files or directories.
 
 When handling a file, the script copies it to the Dropbox Public folder and generates a shortened public link in clipboard ready for a CTRL-V. When handling a directory, first it zips it then publishes the resulting archive.
 
-This script is intended to work as a file browser script. But it should work fine as a command line tool too.
+This script is intended to work as a file manager script. But it should work fine as a command line tool too.
 
-It was tested under Caja, Nautilus, and Thunar.
+It was tested in a Linux Mint box for the following file manages: Caja, Nautilus, and Thunar.
 
 ## Installation
 
