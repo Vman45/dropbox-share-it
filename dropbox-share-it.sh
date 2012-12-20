@@ -5,7 +5,7 @@ ICON_WARNING=/usr/share/icons/gnome/48x48/status/messagebox_warning.png
 ICON_OK=~/.dropbox-dist/images/emblems/emblem-dropbox-uptodate.png
 
 # Dropbox settings
-DROPBOX_FOLDER=~/Dropbox/Public
+DROPBOX_FOLDER=~/Dropbox/Public/Share
 DROPBOX_UID=
 
 # Select your url shortener
@@ -56,7 +56,7 @@ else
 fi
 
 # Create URL (spaces are substituted to %20 to make it a valid URL)
-RAWURL="https://dl.dropbox.com/u/$DROPBOX_UID/$FILENAME"
+RAWURL="https://dl.dropbox.com/u/$DROPBOX_UID/Share/$FILENAME"
 URL=`echo "$RAWURL" | \
      sed -E 's/ /%20/g'`
 
