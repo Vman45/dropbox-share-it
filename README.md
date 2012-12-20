@@ -27,9 +27,6 @@ It was tested in a Linux Mint box for the following file managers: Caja, Nautilu
 4. Edit the script file and supply the path for your preferred url shortener at the following variable:
 
         URL_SHORTENER
-5. Make the script file executable:
-
-        $ chmod u+x dropbox-share-it
 
 ## How to Use
 
