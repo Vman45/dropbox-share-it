@@ -9,9 +9,16 @@ DROPBOX_FOLDER=~/Dropbox/Public/Share
 DROPBOX_UID=
 
 # Select your url shortener
-URL_SHORTENER=/path/to/directory/googlit.sh
+#URL_SHORTENER=/path/to/directory/googlit.sh
 
+EXPIRATION_PERIOD=60
 HANDLE_DIRECTORIES=YES
+
+# Create directory if inexistent
+mkdir -p $DROPBOX_FOLDER
+
+# Clean-up old shared files
+find $DROPBOX_FOLDER -type f -mtime +$EXPIRATION_PERIOD -print0 | xargs -0 rm -f
 
 # If there is no argument look at the clipboard
 if [ -d "$1" ] && [ $HANDLE_DIRECTORIES != YES ]; then
@@ -59,6 +66,7 @@ fi
 RAWURL="https://dl.dropbox.com/u/$DROPBOX_UID/Share/$FILENAME"
 URL=`echo "$RAWURL" | \
      sed -E 's/ /%20/g'`
+
 
 SHORTENED=`$URL_SHORTENER $URL`
 
