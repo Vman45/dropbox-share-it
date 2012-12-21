@@ -18,11 +18,16 @@ if [ ! -e $CFG_FILE ]; then
   read -p "Insert Dropbox folder location [press enter for default: ~/Dropbox]: " -e REPLY
   read -p "Point to URL shortener [press enter for no url shortening]: " -e URL_SHORTENER
 
-  if [ -z $REPLY ]; then
+  if [ -z "$REPLY" ]; then
     DROPBOX_FOLDER=~/Dropbox
   else
     DROPBOX_FOLDER=${REPLY%/}
   fi
+
+
+  echo $DROPBOX_FOLDER
+  echo "$DROPBOX_FOLDER"
+
 
   if [ ! -d "$DROPBOX_FOLDER" ]; then
     echo "Inexistent directory."
