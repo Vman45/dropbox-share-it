@@ -1,11 +1,9 @@
 #!/bin/bash -e
 
-
 if [ $# -eq 0 ]; then
   echo "Missing argument."
   exit 113
 fi
-
 
 # Configuration
 CFG_FILE=~/.dropbox-share-it.cfg
