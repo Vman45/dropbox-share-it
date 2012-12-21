@@ -49,7 +49,7 @@ case "$1" in
   read -p "Enable directory handling [press enter for yes?] (y/n): " -e REPLY2
 
   case "$REPLY2" in
-  n|NY)
+  n|N)
     HANDLE_DIRECTORIES=NO
   ;;
   *)
