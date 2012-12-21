@@ -32,11 +32,9 @@ if [ ! -e $CFG_FILE ]; then
     exit 113
   fi
 
-
   echo DROPBOX_UID=$DROPBOX_UID > $CFG_FILE
   echo DROPBOX_FOLDER=$DROPBOX_FOLDER >> $CFG_FILE
   echo URL_SHORTENER=$URL_SHORTENER >> $CFG_FILE
-
 
   echo ""
   echo "Stored data:"
@@ -54,11 +52,7 @@ fi
 ICON_WARNING=/usr/share/icons/gnome/48x48/status/messagebox_warning.png
 ICON_OK=~/.dropbox-dist/images/emblems/emblem-dropbox-uptodate.png
 
-# Dropbox settings
 DROPBOX_SHARE=$DROPBOX_FOLDER/Public/Share
-
-# Select your url shortener
-#URL_SHORTENER=/path/to/directory/googlit.sh
 
 EXPIRATION_PERIOD=60
 HANDLE_DIRECTORIES=YES
@@ -116,6 +110,8 @@ RAWURL="https://dl.dropbox.com/u/$DROPBOX_UID/Share/$FILENAME"
 URL=`echo "$RAWURL" | \
      sed -E 's/ /%20/g'`
 
+
+echo $URL_SHORTENER
 
 if [ -z $URL_SHORTENER ]; then
   SHORTENED=$URL
