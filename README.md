@@ -12,13 +12,15 @@ It was tested in a Linux Mint box for the following file managers: Caja, Nautilu
 
 
 1. Run the script to configure it.
-2. If using Caja or Nautilus, copy the script file to one of the following directories:
+2. To re-configure it, remove file `.dropbox-share-it.cfg` at home directory and run the script again.
+3. If using Caja or Nautilus, copy the script file to one of the following directories:
 
         ~/.config/caja/scripts
     
         ~/.gnome2/nautilus-scripts
 
    In Thunar, just go to Edit menu, and then configure Custom Actions.
+
 
 ## How to Use
 
