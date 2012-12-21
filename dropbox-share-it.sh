@@ -10,8 +10,7 @@ if [ $# -eq 0 ]; then
 fi
 
 # Configuration
-#CFG_FILE=~/.dropbox-share-it.cfg
-CFG_FILE=configao
+CFG_FILE=~/.dropbox-share-it.cfg
 
 case "$1" in
 
