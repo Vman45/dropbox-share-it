@@ -14,8 +14,8 @@ if [ ! -e $CFG_FILE ]; then
   echo "------------------------------"
   echo ""
 
-  read -p "Insert Dropbox user id: " -e DROPBOX_UID
-  read -p "Insert Dropbox folder [press enter for default: ~/Dropbox]: " -e REPLY
+  read -p "Insert your Dropbox user id: " -e DROPBOX_UID
+  read -p "Insert Dropbox folder location [press enter for default: ~/Dropbox]: " -e REPLY
   read -p "Point to URL shortener [press enter for no url shortening]: " -e URL_SHORTENER
 
   if [ -z $REPLY ]; then
