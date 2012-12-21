@@ -67,7 +67,6 @@ RAWURL="https://dl.dropbox.com/u/$DROPBOX_UID/Share/$FILENAME"
 URL=`echo "$RAWURL" | \
      sed -E 's/ /%20/g'`
 
-
 SHORTENED=`$URL_SHORTENER $URL`
 
 echo -n $SHORTENED | xclip -selection clipboard
