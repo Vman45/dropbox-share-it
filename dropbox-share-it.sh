@@ -24,15 +24,15 @@ if [ ! -e $CFG_FILE ]; then
     DROPBOX_FOLDER=${REPLY%/}
   fi
 
-  if [ ! -d $REPLY ]; then
+  if [ ! -d "$DROPBOX_FOLDER" ]; then
     echo "Inexistent directory."
     echo "Aborting. Bye."
     exit 113
   fi
 
   echo DROPBOX_UID=$DROPBOX_UID > $CFG_FILE
-  echo DROPBOX_FOLDER=$DROPBOX_FOLDER >> $CFG_FILE
-  echo URL_SHORTENER=$URL_SHORTENER >> $CFG_FILE
+  echo DROPBOX_FOLDER="$DROPBOX_FOLDER" >> $CFG_FILE
+  echo URL_SHORTENER="$URL_SHORTENER" >> $CFG_FILE
 
   echo ""
   echo "Stored data:"
@@ -90,7 +90,7 @@ if [ -e "$DROPBOX_SHARE/$FILENAME" ]; then
               -i $ICON_WARNING
 fi
 
-# Zip directory or copy file into Dropbox Public directory
+# (Zip directory or copy file) into Dropbox Public directory
 if [ -d "$1" ]; then
 
   zip -r "$DROPBOX_SHARE/$FILENAME" "$BASENAME" 
