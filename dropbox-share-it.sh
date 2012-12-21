@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/bash -exv
 
 if [ $# -eq 0 ]; then
   echo "Missing argument."
@@ -16,7 +16,7 @@ if [ ! -e $CFG_FILE ]; then
 
   read -p "Insert Dropbox user id: " -e DROPBOX_UID
   read -p "Insert Dropbox folder [press enter for default: ~/Dropbox]: " -e REPLY
-  read -p "Point to URL shortner [press enter for no url shortening]: " -e URL_SHORTENER
+  read -p "Point to URL shortener [press enter for no url shortening]: " -e URL_SHORTENER
 
   if [ -z $REPLY ]; then
     DROPBOX_FOLDER=~/Dropbox
@@ -52,7 +52,9 @@ ICON_OK=~/.dropbox-dist/images/emblems/emblem-dropbox-uptodate.png
 
 DROPBOX_SHARE=$DROPBOX_FOLDER/Public/Share
 
+# Expiration period in days
 EXPIRATION_PERIOD=60
+
 HANDLE_DIRECTORIES=YES
 
 # Create directory if inexistent
