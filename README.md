@@ -10,23 +10,15 @@ It was tested in a Linux Mint box for the following file managers: Caja, Nautilu
 
 ## Installation
 
-1. If using Caja or Nautilus, copy the script file to one of the following directories:
+
+1. Run the script to configure it.
+2. If using Caja or Nautilus, copy the script file to one of the following directories:
 
         ~/.config/caja/scripts
     
         ~/.gnome2/nautilus-scripts
 
    In Thunar, just go to Edit menu, and then configure Custom Actions.
-
-2. Edit the script file and supply your Dropbox user id (see below how to find out your Dropbox user id) at the following variable:
-
-        DROPBOX_UID
-3. Edit the script file and supply your Dropbox Public directory (if not default) at the following variable:
-
-        DROPBOX_FOLDER
-4. Edit the script file and supply the path for your preferred url shortener at the following variable:
-
-        URL_SHORTENER
 
 ## How to Use
 
