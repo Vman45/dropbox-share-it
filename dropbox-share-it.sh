@@ -33,7 +33,7 @@ if [ ! -e $CFG_FILE ]; then
 
   echo DROPBOX_UID=$DROPBOX_UID > $CFG_FILE
   echo DROPBOX_FOLDER="$DROPBOX_FOLDER" >> $CFG_FILE
-  eval echo URL_SHORTENER="$URL_SHORTENER" >> $CFG_FILE
+  echo URL_SHORTENER="$URL_SHORTENER" >> $CFG_FILE
 
   echo ""
   echo "Stored data:"
@@ -111,16 +111,11 @@ RAWURL="https://dl.dropbox.com/u/$DROPBOX_UID/Share/$FILENAME"
 URL=`echo "$RAWURL" | \
      sed -E 's/ /%20/g'`
 
-
-echo $URL_SHORTENER
-
 if [ -z $URL_SHORTENER ]; then
   SHORTENED=$URL
 else
   SHORTENED=`eval $URL_SHORTENER $URL`
 fi
-
-echo $SHORTENED
 
 echo -n $SHORTENED | xclip -selection clipboard
 
