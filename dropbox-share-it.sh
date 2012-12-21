@@ -1,4 +1,4 @@
-#!/bin/bash -exv
+#!/bin/bash -e
 
 if [ $# -eq 0 ]; then
   echo "Missing argument."
@@ -21,12 +21,8 @@ if [ ! -e $CFG_FILE ]; then
   if [ -z "$REPLY" ]; then
     DROPBOX_FOLDER=~/Dropbox
   else
-    DROPBOX_FOLDER=${REPLY%/}
+    eval DROPBOX_FOLDER="${REPLY%/}"
   fi
-
-
-  echo $DROPBOX_FOLDER
-  echo "$DROPBOX_FOLDER"
 
 
   if [ ! -d "$DROPBOX_FOLDER" ]; then
@@ -37,7 +33,7 @@ if [ ! -e $CFG_FILE ]; then
 
   echo DROPBOX_UID=$DROPBOX_UID > $CFG_FILE
   echo DROPBOX_FOLDER="$DROPBOX_FOLDER" >> $CFG_FILE
-  echo URL_SHORTENER="$URL_SHORTENER" >> $CFG_FILE
+  eval echo URL_SHORTENER="$URL_SHORTENER" >> $CFG_FILE
 
   echo ""
   echo "Stored data:"
@@ -55,7 +51,7 @@ fi
 ICON_WARNING=/usr/share/icons/gnome/48x48/status/messagebox_warning.png
 ICON_OK=~/.dropbox-dist/images/emblems/emblem-dropbox-uptodate.png
 
-DROPBOX_SHARE=$DROPBOX_FOLDER/Public/Share
+DROPBOX_SHARE="$DROPBOX_FOLDER"/Public/Share
 
 # Expiration period in days
 EXPIRATION_PERIOD=60
@@ -121,7 +117,7 @@ echo $URL_SHORTENER
 if [ -z $URL_SHORTENER ]; then
   SHORTENED=$URL
 else
-  SHORTENED=`$URL_SHORTENER $URL`
+  SHORTENED=`eval $URL_SHORTENER $URL`
 fi
 
 echo $SHORTENED
