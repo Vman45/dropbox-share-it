@@ -37,11 +37,11 @@ Actually this script was only tested with googlit.sh.
 
 ## Dropbox UID
 
-To find your Dropbox UID, get a Dropbox public link, as for example:
+To find your Dropbox UID, generate any Dropbox public link, as for example:
 
     https://dl.dropbox.com/u/01234567/filename.txt
 
-In this case, the Dropbox UID is 01234567.
+In this case, your Dropbox UID is 01234567.
 
 ## Warning
 
