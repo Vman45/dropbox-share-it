@@ -24,7 +24,7 @@ It was tested in a Linux Mint box for the following file managers: Caja, Nautilu
 1. Just right-click on any file and run the script.
 2. Target file is copied to Dropbox Public folder.
 3. Notifications may appear.
-4. A short URL should be available at your clipboard ready for ctrl+v.
+4. A short URL should be available at your clipboard ready for paste operation (CTRL+V).
 
 If the target object is a folder, then the script will zip it into an archive. Remaining actions (2-4) follow the same.
 
