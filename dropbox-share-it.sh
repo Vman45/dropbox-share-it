@@ -1,4 +1,8 @@
-#!/bin/bash -e
+#!/bin/bash -exv
+
+# Icons
+ICON_WARNING=/usr/share/icons/gnome/48x48/status/messagebox_warning.png
+ICON_OK=~/.dropbox-dist/images/emblems/emblem-dropbox-uptodate.png
 
 if [ $# -eq 0 ]; then
   echo "Missing argument."
@@ -6,34 +10,64 @@ if [ $# -eq 0 ]; then
 fi
 
 # Configuration
-CFG_FILE=~/.dropbox-share-it.cfg
+#CFG_FILE=~/.dropbox-share-it.cfg
+CFG_FILE=configao
 
-if [ ! -e $CFG_FILE ]; then
+case "$1" in
+
+--configure|-c) 
 
   echo "dropbox-share-it configuration"
   echo "------------------------------"
   echo ""
 
   read -p "Insert your Dropbox user id: " -e DROPBOX_UID
-  read -p "Insert Dropbox folder location [press enter for default: ~/Dropbox]: " -e REPLY
-  read -p "Point to URL shortener [press enter for no url shortening]: " -e URL_SHORTENER
 
-  if [ -z "$REPLY" ]; then
+  echo DROPBOX_UID=$DROPBOX_UID > $CFG_FILE
+
+  read -p "Insert Dropbox folder location [press enter for ~/Dropbox]: " -e REPLY1
+
+  if [ -z "$REPLY1" ]; then
     DROPBOX_FOLDER=~/Dropbox
   else
-    eval DROPBOX_FOLDER="${REPLY%/}"
+    eval DROPBOX_FOLDER="${REPLY1%/}"
   fi
 
-
   if [ ! -d "$DROPBOX_FOLDER" ]; then
-    echo "Inexistent directory."
-    echo "Aborting. Bye."
+    echo "Inexistent Dropbox directory."
+    echo "Aborting configuration. Bye."
+    rm -f $CFG_FILE
     exit 113
   fi
 
-  echo DROPBOX_UID=$DROPBOX_UID > $CFG_FILE
-  echo DROPBOX_FOLDER="$DROPBOX_FOLDER" >> $CFG_FILE
-  echo URL_SHORTENER="$URL_SHORTENER" >> $CFG_FILE
+  eval echo DROPBOX_FOLDER="$DROPBOX_FOLDER" >> $CFG_FILE
+
+  read -p "Point to URL shortener [press enter for no url shortening]: " -e URL_SHORTENER
+
+  eval echo URL_SHORTENER="$URL_SHORTENER" >> $CFG_FILE
+
+  read -p "Enable directory handling [press enter for yes?] (y/n): " -e REPLY2
+
+  case "$REPLY2" in
+  n|NY)
+    HANDLE_DIRECTORIES=NO
+  ;;
+  *)
+    HANDLE_DIRECTORIES=YES
+  ;;
+  esac
+
+  echo HANDLE_DIRECTORIES="$HANDLE_DIRECTORIES" >> $CFG_FILE
+
+  read -p "Set shared files expiration period in days [press enter for never]: " -e REPLY3
+
+  if [ -z "$REPLY3" ]; then
+    EXPIRATION_PERIOD=-1
+  else
+    EXPIRATION_PERIOD=$REPLY3
+  fi
+
+  echo EXPIRATION_PERIOD="$EXPIRATION_PERIOD" >> $CFG_FILE
 
   echo ""
   echo "Stored data:"
@@ -41,34 +75,73 @@ if [ ! -e $CFG_FILE ]; then
 
   cat $CFG_FILE
 
-else
+  exit 113
 
-  source $CFG_FILE
+;;
+
+--remove|-r)
+
+  rm -f $CFG_FILE
+  exit 113
+
+;;
+
+--help|-h)
+
+  echo "dropbox-share-it script"
+  echo ""
+  echo "Git repository: https://github.com/rjdsc/dropbox-share-it"
+  echo ""
+  echo "Options:"
+
+  echo "--configure  : setup configuration file"
+  echo "--remove     : remove configuragion file"
+  echo "--help       : this screen"
+  echo ""
+  
+  exit 113
+
+;;
+
+esac
+
+
+exit 113
+
+
+if [ ! -e $CFG_FILE ]; then
+  notify-send "Dropbox-Share-It!" \
+              "Run configuration." \
+              -i $ICON_WARNING
+  exit 113
+fi
+
+if [ ! -d "$1" ] && [ ! -f "$1" ]; then
+
+  notify-send "Dropbox-Share-It!" \
+              "Invalid input." \
+              -i $ICON_WARNING
+  exit 113
 
 fi
 
-# Icons
-ICON_WARNING=/usr/share/icons/gnome/48x48/status/messagebox_warning.png
-ICON_OK=~/.dropbox-dist/images/emblems/emblem-dropbox-uptodate.png
-
-DROPBOX_SHARE="$DROPBOX_FOLDER"/Public/Share
-
-# Expiration period in days
-EXPIRATION_PERIOD=60
-
-HANDLE_DIRECTORIES=YES
+# Read configuration
+source $CFG_FILE
 
 # Create directory if inexistent
+DROPBOX_SHARE="$DROPBOX_FOLDER"/Public/Share
 mkdir -p $DROPBOX_SHARE
 
 # Clean-up old shared files
-find $DROPBOX_SHARE -type f -mtime +$EXPIRATION_PERIOD -print0 | xargs -0 rm -f
+if [ "$EXPIRATION_PERIOD" != "-1" ]; then
+  find $DROPBOX_SHARE -type f -mtime +$EXPIRATION_PERIOD -print0 | xargs -0 rm -f
+fi
 
 # If there is no argument look at the clipboard
 if [ -d "$1" ] && [ $HANDLE_DIRECTORIES != YES ]; then
 
   notify-send "Dropbox-Share-It!" \
-              "Warning: Directories support disabled." \
+              "Directories support disabled." \
               -i $ICON_WARNING
   exit 113
 
@@ -87,7 +160,7 @@ fi
 if [ -e "$DROPBOX_SHARE/$FILENAME" ]; then
 
   notify-send "Dropbox-Share-It!" \
-              "Warning: $FILENAME was overwritten." \
+              "$FILENAME was overwritten." \
               -i $ICON_WARNING
 fi
 
