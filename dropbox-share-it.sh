@@ -1,4 +1,4 @@
-#!/bin/bash -exv
+#!/bin/bash -e
 
 # Icons
 ICON_WARNING=/usr/share/icons/gnome/48x48/status/messagebox_warning.png
@@ -94,9 +94,9 @@ case "$1" in
   echo ""
   echo "Options:"
 
-  echo "--configure  : setup configuration file"
-  echo "--remove     : remove configuragion file"
-  echo "--help       : this screen"
+  echo "--configure, -c  : setup configuration file"
+  echo "--remove, -r     : remove configuragion file"
+  echo "--help, -h       : this screen"
   echo ""
   
   exit 113
@@ -104,10 +104,6 @@ case "$1" in
 ;;
 
 esac
-
-
-exit 113
-
 
 if [ ! -e $CFG_FILE ]; then
   notify-send "Dropbox-Share-It!" \
