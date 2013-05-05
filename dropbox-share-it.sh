@@ -175,9 +175,13 @@ else
 fi
 
 # Create URL (spaces are substituted to %20 to make it a valid URL)
-RAWURL="https://dl.dropbox.com/u/$DROPBOX_UID/Share/$FILENAME"
+#RAWURL="https://dl.dropbox.com/u/$DROPBOX_UID/Share/$FILENAME"
+RAWURL="https://dl.dropboxusercontent.com/u/$DROPBOX_UID/Share/$FILENAME"
+
 URL=`echo "$RAWURL" | \
-     sed -E 's/ /%20/g'`
+     sed -E 's/ /%20/g' | \`
+     sed -E 's/[/%5B/g' | \`
+     sed -E 's/]/%5D/g'`
 
 if [ -z $URL_SHORTENER ]; then
   SHORTENED=$URL
