@@ -178,10 +178,15 @@ fi
 #RAWURL="https://dl.dropbox.com/u/$DROPBOX_UID/Share/$FILENAME"
 RAWURL="https://dl.dropboxusercontent.com/u/$DROPBOX_UID/Share/$FILENAME"
 
+echo $RAWURL
+
 URL=`echo "$RAWURL" | \
-     sed -E 's/ /%20/g' | \`
-     sed -E 's/[/%5B/g' | \`
+     sed -E 's/ /%20/g' | \
+     sed -E 's/[/%5B/g' | \
      sed -E 's/]/%5D/g'`
+
+
+echo $URL
 
 if [ -z $URL_SHORTENER ]; then
   SHORTENED=$URL
