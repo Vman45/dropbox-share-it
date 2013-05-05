@@ -14,7 +14,7 @@ CFG_FILE=~/.dropbox-share-it.cfg
 
 case "$1" in
 
---configure|-c) 
+--configure|-c)
 
   echo "dropbox-share-it configuration"
   echo "------------------------------"
@@ -97,7 +97,7 @@ case "$1" in
   echo "--remove, -r     : remove configuragion file"
   echo "--help, -h       : this screen"
   echo ""
-  
+
   exit 113
 
 ;;
@@ -162,7 +162,7 @@ fi
 # (Zip directory or copy file) into Dropbox Public directory
 if [ -d "$1" ]; then
 
-  zip -r "$DROPBOX_SHARE/$FILENAME" "$BASENAME" 
+  zip -r "$DROPBOX_SHARE/$FILENAME" "$BASENAME"
 
   notify-send "Dropbox-Share-It!" \
               "Zipping directory." \
@@ -182,8 +182,8 @@ echo $RAWURL
 
 URL=`echo "$RAWURL" | \
      sed -E 's/ /%20/g' | \
-     sed -E 's/[/%5B/g' | \
-     sed -E 's/]/%5D/g'`
+     sed -E 's/\[/%5B/g' | \
+     sed -E 's/\]/%5D/g'`
 
 
 echo $URL
