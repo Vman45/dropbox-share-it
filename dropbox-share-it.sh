@@ -177,12 +177,41 @@ fi
 # Create URL
 # Spaces are substituted to %20 to make it a valid URL
 # [ ] are invalid too
-RAWURL="https://dl.dropboxusercontent.com/u/$DROPBOX_UID/Share/$FILENAME"
 
-URL=`echo "$RAWURL" | \
+echo "$FILENAME"
+
+CLEANFILENAME=`echo "$FILENAME" | \
      sed -E 's/ /%20/g' | \
+     sed -E 's/%/%25/g' | \
+     sed -E 's/\"/%22/g' | \
+     sed -E 's/\(/%28/g' | \
+     sed -E 's/\)/%29/g' | \
+     sed -E 's/,/%2C/g' | \
+     sed -E 's/;/%3B/g' | \
+     sed -E 's/</%3C/g' | \
+     sed -E 's/=/%3D/g' | \
+     sed -E 's/>/%3E/g' | \
      sed -E 's/\[/%5B/g' | \
-     sed -E 's/\]/%5D/g'`
+     sed -E 's/\]/%5D/g' | \
+     sed -E 's/\^/%5C%5E/g' | \
+     sed -E 's/\{/%7B/g' | \
+     sed -E 's/\|/%7C/g' | \
+     sed -E 's/\}/%7D/g' | \
+     sed -E 's/:/%3A/g' | \
+     sed -E 's/#/%23/g' | \
+     sed -E 's/\?/%3F/g' | \
+     sed -E 's/&/%26/g' | \
+     sed -E 's/@/%40/g' | \
+     sed -E 's/\+/%2B/g' | \
+     sed -E 's/\~/%7E/g'`
+
+#     sed -E 's/\$/%24/g' | \
+#     sed -E 's/`/%60/g'
+#     sed -E 's/\\//g' | \
+
+URL="https://dl.dropboxusercontent.com/u/$DROPBOX_UID/Share/$CLEANFILENAME"
+
+echo $URL
 
 if [ -z $URL_SHORTENER ]; then
   SHORTENED=$URL
