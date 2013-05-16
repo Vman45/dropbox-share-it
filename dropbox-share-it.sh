@@ -181,8 +181,9 @@ fi
 echo "$FILENAME"
 
 CLEANFILENAME=`echo "$FILENAME" | \
-     sed -E 's/ /%20/g' | \
      sed -E 's/%/%25/g' | \
+     sed -E 's/ /%20/g' | \
+     sed -E 's/!/%21/g' | \
      sed -E 's/\"/%22/g' | \
      sed -E 's/\(/%28/g' | \
      sed -E 's/\)/%29/g' | \
